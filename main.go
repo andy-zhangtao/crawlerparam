@@ -3,7 +3,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -82,8 +81,8 @@ func callback() error {
 			return fmt.Errorf("[%s] error:[%s]", u, err.Error())
 		}
 		defer resp.Body.Close()
-		_, err = ioutil.ReadAll(resp.Body)
-		if err != nil {
+
+		if resp.StatusCode != http.StatusOK {
 			return fmt.Errorf("[%s] error:[%s]", u, err.Error())
 		}
 	}
