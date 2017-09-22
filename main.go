@@ -74,19 +74,17 @@ func callback() error {
 		log.Printf("CALLBACK [%s] ", u)
 		req, err := http.NewRequest("POST", u, strings.NewReader(content))
 		if err != nil {
-			log.Printf("[%s] error:[%s]", u, err.Error())
-			continue
+			return fmt.Errorf("[%s] error:[%s]", u, err.Error())
+
 		}
 		resp, err := client.Do(req)
 		if err != nil {
-			log.Printf("[%s] error:[%s]", u, err.Error())
-			continue
+			return fmt.Errorf("[%s] error:[%s]", u, err.Error())
 		}
 		defer resp.Body.Close()
 		_, err = ioutil.ReadAll(resp.Body)
 		if err != nil {
-			log.Printf("[%s] error:[%s]", u, err.Error())
-			continue
+			return fmt.Errorf("[%s] error:[%s]", u, err.Error())
 		}
 	}
 
