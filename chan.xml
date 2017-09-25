@@ -26,6 +26,10 @@
             <name>iqiyi</name>
             <cid>3</cid>
         </source>
+        <source>
+            <name>budejie</name>
+            <cid>0</cid>
+        </source>
     </chan>
     <chan id="1002">
         <source>

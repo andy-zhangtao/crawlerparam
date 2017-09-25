@@ -10,7 +10,7 @@ build:
 run: build
 	@./crawlerparam
 
-release: *.go v1/*.go
+release: *.go v1/*.go *.xml
 	GOOS=linux GOARCH=amd64 go build -ldflags "-X main._VERSION_=$(shell date +%Y%m%d)" -a -o cralwerparam
 	docker build -t vikings/cralwerparam .
 	docker push vikings/cralwerparam
