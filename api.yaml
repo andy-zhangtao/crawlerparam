@@ -160,6 +160,10 @@ definitions:
   Video:
     type: object
     properties:
+      id:
+        type: string
+        description: 视频ID
+        example: AV6oTVErtNSSeXcgS6uR
       title:
         type: string
         description: 视频标题
@@ -217,6 +221,10 @@ definitions:
   Doc:
     type: object
     properties:
+      id:
+        type: string
+        description: 图文ID
+        example: AV89g3TZkVipCCPiUJH_
       title:
         type: string
         description: 图文标题
@@ -230,10 +238,9 @@ definitions:
         type: string
         description: 素材地址
       img:
-        type: array
+        type: string
         description: 缩略图信息
-        items:
-          $ref: '#/definitions/Img'
+        example: https://p3.pstatp.com/list/402800029d7baf982cf3
       source:
         type: integer
         format: int32
